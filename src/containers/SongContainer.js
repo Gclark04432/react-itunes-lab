@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SongSelector from '../components/SongSelector';
+import SongDetail from '../components/SongDetail';
 
 class SongContainer extends Component{
 
@@ -22,11 +23,19 @@ class SongContainer extends Component{
     this.setState({ selectedSongId: songId})
   }
 
+  getSongBySelectedSongId(){
+    const selectedSong = this.state.songs.find(song => {
+      return song.id.attributes['im:id'] === this.state.selectedSongId
+    })
+    return selectedSong;
+  }
+
   render() {
     return (
       <div>
-      <h1>SongContainer</h1>
+      <h1>Current iTunes Top 20</h1>
       <SongSelector songs={ this.state.songs } songIdSelected={ this.selectSongById }/>
+      <SongDetail selectedSong={ this.getSongBySelectedSongId() }/>
       </div>
     )
   }

@@ -5,7 +5,7 @@ const SongSelector = (props) => {
   const options = props.songs.map(song => {
     return(
       <option value={song.id.attributes['im:id']} key={song.id.attributes['im:id']}>
-        {song ['im:name'].label}
+        {song['im:name'].label}
       </option>
     )
   })
@@ -16,13 +16,10 @@ const SongSelector = (props) => {
   }
 
   return (
-    <div>
-    <h2>SongSelector</h2>
     <select defaultValue="default" onChange={handleSongSelectedId}>
       <option disabled value="default">Choose a song...</option>
       {options}
     </select>
-    </div>
   )
 
 }
