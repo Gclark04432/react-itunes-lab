@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SongSelector from '../components/SongSelector';
 
 class SongContainer extends Component{
 
@@ -18,7 +19,10 @@ class SongContainer extends Component{
 
   render() {
     return (
+      <div>
       <h1>SongContainer</h1>
+      <SongSelector songs={ this.state.songs }/>
+      </div>
     )
   }
 
