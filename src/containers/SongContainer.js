@@ -9,6 +9,7 @@ class SongContainer extends Component{
       songs: [],
       selectedSongId: ""
     }
+    this.selectSongById = this.selectSongById.bind(this);
   }
 
   componentDidMount() {
@@ -17,11 +18,15 @@ class SongContainer extends Component{
     .then(songList => this.setState( {songs: songList.feed.entry}))
   }
 
+  selectSongById(songId){
+    this.setState({ selectedSongId: songId})
+  }
+
   render() {
     return (
       <div>
       <h1>SongContainer</h1>
-      <SongSelector songs={ this.state.songs }/>
+      <SongSelector songs={ this.state.songs } songIdSelected={ this.selectSongById }/>
       </div>
     )
   }

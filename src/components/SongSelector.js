@@ -10,10 +10,15 @@ const SongSelector = (props) => {
     )
   })
 
+  function handleSongSelectedId(event){
+    const selectedSongId = event.target.value;
+    props.songIdSelected(selectedSongId);
+  }
+
   return (
     <div>
     <h2>SongSelector</h2>
-    <select defaultValue="default">
+    <select defaultValue="default" onChange={handleSongSelectedId}>
       <option disabled value="default">Choose a song...</option>
       {options}
     </select>
